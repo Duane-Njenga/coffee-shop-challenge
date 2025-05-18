@@ -10,6 +10,7 @@ class Order:
 
         if isinstance(coffee, Coffee):
             self.coffee = coffee
+            coffee._orders.append(self)
 
         Order.all.append(self)
         self.price = price
@@ -26,21 +27,4 @@ class Order:
             raise ValueError("Price must be between 1.0 and 10.0.")
         self._price = value
     
-
-customer_1 = Customer("Dim")
-customer_2 =Customer("Szoboslai")
-Mocha = Coffee("Mocha")
-Latte = Coffee("Latte")
-
-Order_1 =Order(customer_1, Mocha, 8.0)
-Order_2 =Order(customer_1, Mocha, 8.0)
-Order_3 =Order(customer_1, Latte, 8.0)
-Order_4 =Order(customer_2, Mocha, 8.0)
-
-
-# print(customer_1.orders())
-# print(Mocha.orders())
-print(Mocha.customers())
-# print(customer_1.orders())
-
 
